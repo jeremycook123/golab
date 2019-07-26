@@ -1,0 +1,61 @@
+package main
+
+import (
+	"fmt"
+	"net/http"
+
+	"github.com/gorilla/mux"
+)
+
+func test(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	w.Write([]byte("this has worked!\n\n"))
+
+    return
+}
+
+func main() {
+    fmt.Println("hello world")
+    router := mux.NewRouter()
+
+    router.HandleFunc("/test", test).Methods("GET")
+
+    http.ListenAndServe(":8080", router)
+}
+
+===================================
+
+wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.12.7.linux-amd64.tar.gz
+echo 'export PATH=$PATH:/usr/local/go/bin:${HOME}/go/bin' >> ~/.bashrc
+source ~/.bashrc
+
+export GOROOT=/usr/local/go
+echo $HOME
+mkdir $HOME/Projects/
+mkdir -p $HOME/Projects/project1
+go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+go
+go version
+go env
+
+======================
+
+cd ~/Projects/project1/
+ls -la
+cd /home/project/app1
+export GOPATH=/home/project/app1
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+go env
+ls -la
+go run main.go
+go build
+
+=======================
+
+ls -la
+./app1
+go get -u github.com/gorilla/mux
+go run main.go
+
