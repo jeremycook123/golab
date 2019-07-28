@@ -1,14 +1,8 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
-	"log"
-	"net/http"
-	"strings"
-
 	//CODE1: import gorilla mux package for http routing
-
 )
 
 //CODE2: define codedetail struct
@@ -32,10 +26,10 @@ import (
 func main() {
 	fmt.Println("serving on port 8080!!")
 
-	//CODE12: create a new gorilla mux router
+	//CODE11: create a new gorilla mux router
 
-	//CODE13: establish api routes
+	//CODE12: establish api routes
 
-	//CODE14: startup the http server and configure it on port 8080 with gorilla mux router
+	//CODE13: startup the http server and configure it on port 8080 with gorilla mux router
 
 }

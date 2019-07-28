@@ -102,7 +102,7 @@ Resources:
             echo finished!!
       Tags:
         - Key: Name
-          Value: ide.go.platform.instance
+          Value: ide.cloudacademy.platform.instance
 
 Outputs:
   SubnetId:
