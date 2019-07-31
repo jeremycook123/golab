@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strings"
 
-	//CODE1: import gorilla mux and handlers packages for http routing and CORS support
+	//CODE1: import gorilla mux and handlers packages for HTTP routing and CORS support
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
@@ -165,10 +165,10 @@ func main() {
 	router.HandleFunc("/languages/{name}", deletelanguagebyname).Methods("DELETE")
 	router.HandleFunc("/languages/{name}/vote", voteonlanguage).Methods("GET")
 
-	//CODE13: configured CORS settings for incoming AJAX requests
+	//CODE13: configure CORS settings to allow incoming AJAX requests
 	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With"})
 	originsOk := handlers.AllowedOrigins([]string{"*"})
-	methodsOk := handlers.AllowedMethods([]string{"GET"})
+	methodsOk := handlers.AllowedMethods([]string{"GET, POST"})
 
 	//CODE14: startup the http server and configure it on port 8080 with the gorilla mux router
 	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(originsOk, headersOk, methodsOk)(router)))

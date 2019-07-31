@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	//CODE1: import gorilla mux package for http routing
+	//CODE1: import gorilla mux and handlers packages for HTTP routing and CORS support
 )
 
 //CODE2: define codedetail struct
@@ -30,6 +30,8 @@ func main() {
 
 	//CODE12: establish api routes
 
-	//CODE13: startup the http server and configure it on port 8080 with gorilla mux router
+	//CODE13: configured CORS settings for incoming AJAX requests
+
+	//CODE14: startup the http server and configure it on port 8080 with the gorilla mux router
 
 }
