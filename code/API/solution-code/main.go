@@ -7,7 +7,8 @@ import (
 	"net/http"
 	"strings"
 
-	//CODE1: import gorilla mux package for http routing
+	//CODE1: import gorilla mux and handlers packages for http routing and CORS support
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
 
@@ -93,6 +94,8 @@ func voteonlanguage(w http.ResponseWriter, req *http.Request) {
 	params := mux.Vars(req)
 	name := strings.ToLower(params["name"])
 
+	fmt.Println("incoming vote for: " + name)
+
 	if detail, ok := languages[name]; ok {
 		detail.Votes++
 
@@ -162,6 +165,11 @@ func main() {
 	router.HandleFunc("/languages/{name}", deletelanguagebyname).Methods("DELETE")
 	router.HandleFunc("/languages/{name}/vote", voteonlanguage).Methods("GET")
 
-	//CODE13: startup the http server and configure it on port 8080 with gorilla mux router
-	log.Fatal(http.ListenAndServe(":8080", router))
+	//CODE13: configured CORS settings for incoming AJAX requests
+	headersOk := handlers.AllowedHeaders([]string{"X-Requested-With"})
+	originsOk := handlers.AllowedOrigins([]string{"*"})
+	methodsOk := handlers.AllowedMethods([]string{"GET"})
+
+	//CODE14: startup the http server and configure it on port 8080 with the gorilla mux router
+	log.Fatal(http.ListenAndServe(":8080", handlers.CORS(originsOk, headersOk, methodsOk)(router)))
 }
