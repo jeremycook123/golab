@@ -59,3 +59,6 @@ ls -la
 go get -u github.com/gorilla/mux
 go run main.go
 
+=======================
+
+env GOOS=linux GOARCH=amd64 go build -o api

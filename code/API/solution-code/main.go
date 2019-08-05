@@ -1,13 +1,15 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+
+	//CODE1: import required package dependencies,
+	"encoding/json"
 	"log"
 	"net/http"
 	"strings"
 
-	//CODE1: import gorilla mux and handlers packages for HTTP routing and CORS support
+	//including gorilla mux and handlers packages for HTTP routing and CORS support
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )

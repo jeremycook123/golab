@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	//CODE1: import gorilla mux and handlers packages for HTTP routing and CORS support
+	//CODE1: import required package dependencies,
+	//including gorilla mux and handlers packages for HTTP routing and CORS support
 )
 
 //CODE2: define codedetail struct
